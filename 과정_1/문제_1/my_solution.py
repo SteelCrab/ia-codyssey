@@ -1,7 +1,8 @@
-# 함수 작성
+#  문자열을 반환하는 함수 작성
 def hello():
     return "Hello"
 
-#main 실행
 if __name__ == "__main__":
-    print(hello())
+    # 함수를 호출하고 결과를 출력
+    result = hello()
+    print(result)
