@@ -3,7 +3,7 @@ import os
 from io import BytesIO
 from gtts import gTTS
 
-# 기본 언어 설정 (환경변수 또는 한국어)
+# 기본 언어 설정 (환경변수에 없으면 한국어)
 DEFAULT_LANG = os.getenv('DEFAULT_LANG', 'ko')
 
 # Flask 웹 애플리케이션 생성
