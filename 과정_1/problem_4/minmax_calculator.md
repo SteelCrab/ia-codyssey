@@ -1,4 +1,3 @@
-```mermaid
 flowchart TD
     A[시작] --> B[사용자 입력 받기]
     B --> C{입력값이 비어있는가?}
@@ -10,9 +9,9 @@ flowchart TD
     G -->|Yes| H[find_min_max 함수 호출]
     H --> I[첫 번째 숫자를 min, max로 설정]
     I --> J[모든 숫자와 비교]
-    J --> K{현재 숫자 < min?}
+    J --> K{i < min?}
     K -->|Yes| L[min 업데이트]
-    K -->|No| M{현재 숫자 > max?}
+    K -->|No| M{i > max?}
     L --> M
     M -->|Yes| N[max 업데이트]
     M -->|No| O{더 비교할 숫자가 있는가?}
@@ -21,4 +20,3 @@ flowchart TD
     O -->|No| P[Min: min, Max: max 출력]
     D --> Q[종료]
     P --> Q
-```
