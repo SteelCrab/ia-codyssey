@@ -54,7 +54,7 @@ def tokenize(expression):
     return tokens
 
 def infix_to_postfix(tokens):
-    # 중위 표기법을 후위 표기법으로 변환 (Shunting Yard Algorithm)
+    # 중위 표기법을 후위 표기법으로 변환 
     precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
     stack = []
     postfix = []
