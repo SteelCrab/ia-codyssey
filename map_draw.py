@@ -17,7 +17,7 @@ import matplotlib.patches as patches
 import matplotlib.font_manager as fm
 import numpy as np
 import pandas as pd
-from mas_map import main as load_data
+from caffee_map import main as load_data
 import platform
 
 # 한글 폰트 설정 (운영체제별)
@@ -128,6 +128,9 @@ def draw_grid_lines(ax, x_min, x_max, y_min, y_max):
         ax.axhline(y=y, color='lightgray', linestyle='-', linewidth=0.8, alpha=0.6)
 
 # 건설 현장 그리기 (회색 사각형)
+    # 회색 사각형으로 표시
+    # 다른 구조물과 겹칠 때 우선 표시
+    # 살짝 겹치도록 크기 조정 (0.9×0.9)
 def draw_construction_sites(ax, data):
     
     construction_sites = data[data['ConstructionSite'] == 1]
@@ -137,19 +140,19 @@ def draw_construction_sites(ax, data):
         
         # 회색 사각형 (살짝 겹치도록 크기 조정)
         rect = patches.Rectangle(
-            (x - 0.45, y - 0.45), 0.9, 0.9,
-            linewidth=2, edgecolor='dimgray', facecolor='lightgray', 
+            (x - 0.45, y - 0.45), 0.9, 0.9, # 크기 조정
+            linewidth=2, edgecolor='dimgray', facecolor='lightgray',  
             alpha=0.9, zorder=1
         )
         ax.add_patch(rect)
 
-
+# 구조물 그리기
 def draw_structures(ax, data):
-    """구조물 그리기"""
     
     # 구조물이 있는 데이터만 필터링 (category > 0)
     structures = data[data['category'] > 0]
     
+    # 각 구조물의 좌표와 종류에 따라 그리기
     for _, row in structures.iterrows():
         x, y = row['x'], row['y']
         category = row['category']
