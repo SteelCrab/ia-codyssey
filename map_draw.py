@@ -241,9 +241,8 @@ def add_legend(ax):
              frameon=True, fancybox=True, shadow=True,
              facecolor='white', edgecolor='gray')
 
-
+# 통계 정보 텍스트 추가 (한글)
 def add_statistics_text(ax, data, x_max, y_min):
-    """통계 정보 텍스트 추가 (한글)"""
     
     # 구조물별 개수 계산
     apartment_count = len(data[data['category'] == 1])
