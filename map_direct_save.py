@@ -10,7 +10,7 @@ import matplotlib.font_manager as fm
 import numpy as np
 import pandas as pd
 from collections import deque
-from mas_map import main as load_data
+from caffee_map import main as load_data
 import platform
 
 # 한글 폰트 설정 함수
